@@ -5,9 +5,20 @@
 import SwiftUI
 
 struct ContentView: View {
+	@State private var selection: Int? = 0
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+		NavigationView {
+			List {
+				NavigationLink(
+					destination: ItemListView(directory: NSHomeDirectory() + "/" + "Library/"),
+					tag: 0,
+					selection: $selection,
+					label: {
+						Text("Library")
+					})
+			}
+			.listStyle(SidebarListStyle())
+		}
     }
 }
 
