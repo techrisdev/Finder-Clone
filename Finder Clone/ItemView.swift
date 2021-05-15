@@ -14,5 +14,8 @@ struct ItemView: View {
 				.lineLimit(1)
 				.font(.system(size: 13))
 		}
+		.onDrag {
+			NSItemProvider(contentsOf: URL(fileURLWithPath: path)) ?? NSItemProvider()
+		}
 	}
 }
